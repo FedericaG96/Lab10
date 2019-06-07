@@ -43,7 +43,7 @@ public class Model {
 		Graphs.addAllVertices(grafo, dao.getAuthors(idMap));
 		
 		for(CoAutore ap: dao.getCoAuthors(idMap, idMapPaper)) {
-			if(grafo.getEdge(ap.getAutore2(),ap.getAutore2())==null) {
+			if(grafo.getEdge(ap.getAutore1(),ap.getAutore2())==null) {
 				MyEdge myEdge = new MyEdge(ap.getAutore1(), ap.getAutore2(), ap.getPubbl());
 				grafo.addEdge(ap.getAutore1(), ap.getAutore2(), myEdge);
 			}
@@ -60,6 +60,7 @@ public class Model {
 		DijkstraShortestPath<Author, MyEdge> dij= new DijkstraShortestPath<>(this.grafo);
 		GraphPath<Author, MyEdge> path = dij.getPath(a1, a2);
 		List<Paper> lista = new ArrayList<Paper>();
+		
 		for(MyEdge m : path.getEdgeList()) {
 			lista.add(m.getPubbl());
 		}

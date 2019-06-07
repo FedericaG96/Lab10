@@ -49,8 +49,8 @@ public class PortoController {
     @FXML
     void doPrimo(ActionEvent event) {
     	boxSecondo.getItems().addAll(model.getAuthor());
-    	boxSecondo.getItems().removeAll(model.getCoAutori(boxPrimo.getValue()));
-    	boxSecondo.getItems().remove(boxPrimo.getValue());
+    	boxSecondo.getItems().removeAll(model.getCoAutori(boxPrimo.getValue()));  //rimuovo i coautori del primo autore selezionato
+    	boxSecondo.getItems().remove(boxPrimo.getValue());  //rimuovo il primo autore scelto
     }
 
     @FXML

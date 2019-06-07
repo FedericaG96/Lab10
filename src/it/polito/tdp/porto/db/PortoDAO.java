@@ -130,7 +130,7 @@ public class PortoDAO {
 	public List<CoAutore> getCoAuthors(Map<Integer, Author> idMap, Map<Integer, Paper> idMapPaper) {
 		final String sql = "SELECT c1.authorid AS id1, c2.authorid AS id2, c1.eprintid AS idPrint " + 
 				"FROM creator AS c1, creator AS c2 " + 
-				"WHERE c1.authorid!= c2.authorId " + 
+				"WHERE c1.authorid <> c2.authorId " + 
 				"AND c1.eprintid = c2.eprintid ";
 		List<CoAutore> coAutori = new LinkedList<CoAutore>();
 
